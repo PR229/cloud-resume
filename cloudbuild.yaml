@@ -1,10 +1,11 @@
 steps:
+  #Cloning GIT repo
   - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/PR229/cloud-resume']
+    args: ['clone', 'https://github.com/PR229/cloud-resume', 'cloned-repo']
 
+  #Syncing with cloud storage bucket
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['echo', 'Running a bash command']
-
+    args: ['gsutil', 'rsync', '-r', '/cloned-repo', 'gs://praj-resume-bucket']
 
 options:
   logging: CLOUD_LOGGING_ONLY
