@@ -3,15 +3,9 @@ steps:
   - name: 'gcr.io/cloud-builders/git'
     args: ['clone', 'https://github.com/PR229/cloud-resume', 'cloned-repo']
 
-  - name: 'bash'
-    args: ['ls']
-
-  - name: 'bash'
-    args: ['echo', '"$PWD"']
-
   - name: 'gcr.io/cloud-builders/gsutil'
     entrypoint: 'bash'
-    args: ['gsutil', 'rsync', '-r', '/home/janglepraj/cloud-resume/cloned-repo', 'gs://praj-resume-bucket']
+    args: ['gsutil', 'rsync', '-r', '/workspace/cloned-repo', 'gs://praj-resume-bucket']
 
 options:
   logging: CLOUD_LOGGING_ONLY
