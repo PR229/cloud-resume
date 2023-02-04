@@ -4,7 +4,9 @@ steps:
     args: ['clone', 'https://github.com/PR229/cloud-resume', 'cloned-repo']
 
   #Syncing with cloud storage bucket
-  - name: 'bash'
+  - name: 'gcr.io/cloud-builders/gcloud'
+  + name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  + entrypoint: 'gcloud'
     args: ['gsutil', 'rsync', '-r', '/cloned-repo', 'gs://praj-resume-bucket']
 
 options:
