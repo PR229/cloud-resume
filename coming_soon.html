@@ -141,7 +141,7 @@
             </div>
             <div
               class="header__secend-menu nav-button show-for-small"
-              aria-label="Swipe menu"
+              aria-label="Swipe menu" onclick="toggleMenu()"
             >
               <button class="nav-button button-lines button-lines-x close">
                 <span class="lines"></span>
@@ -152,7 +152,19 @@
           </div>
         </div>
       </header>
-
+      <nav class="swipe-menu" id="swipe-menu" style="display: block">
+        <a
+          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-37174"
+          href="./coming_soon.html"
+          >Blog</a
+        >
+        <a
+          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-37171"
+          href="./resume.html"
+          >Resume</a
+        >
+         </nav>   
+        </div>
       <div class="container">
         <br />
         <center>
@@ -301,5 +313,14 @@
         </div>
       </div>
     </footer>
+    <script>
+      function toggleMenu() {
+        document
+          .querySelector(".nav-button")
+          .addEventListener("click", function (e) {
+            e.preventDefault(), document.body.classList.toggle("nav-visible");
+          });
+      }
+    </script>
   </body>
 </html>
